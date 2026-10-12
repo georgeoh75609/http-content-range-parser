@@ -1,6 +1,6 @@
 [project]
 name = "http-content-range-parser"
-version = "0.1.0"
+version = "0.1.1"
 description = "Parses Content-Range header values into start, end, and total fields, handling bytes and unsatisfied-range forms."
 requires-python = ">=3.10"
 dependencies = []
