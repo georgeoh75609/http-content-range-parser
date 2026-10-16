@@ -37,3 +37,10 @@ The deliberate trade-off: only the `bytes` unit is supported. RFC 9110's grammar
 ## Awkward edge
 
 `bytes */*` is rejected. The unsatisfied-range form exists specifically to tell the client the real total size after a 416, so a server sending `*/*` is not conformant and the parser refuses to guess.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
